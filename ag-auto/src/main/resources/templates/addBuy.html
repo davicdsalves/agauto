@@ -61,7 +61,7 @@
 				<tbody>
 					<tr>
 						<td><input class="form-control" name="placa" th:field="*{autoPlaca}" required="required" type="text" /></td>
-						<td><input class="form-control" name="anoDeFabricacao" th:field="*{autoAno}" required="required" type="text" /></td>
+						<td><input class="form-control" name="anoDeFabricacao" th:field="*{autoAno}" placeholder="yyyy" required="required" type="text" /></td>
 						<td><input class="form-control" name="cor" th:field="*{autoCor}" required="required" type="text" /></td>
 						<td><select class="form-control" th:field="*{autoCombustivel}"><option value="ALCOOL">Alcool</option>
 								<option value="GASOLINA">Gasolina</option>
@@ -89,7 +89,7 @@
 				<tbody>
 					<tr>
 						<td><input class="form-control" name="nome" th:field="*{modNome}" required="required" type="text" /></td>
-						<td><input class="form-control" name="ano" th:field="*{modAno}" required="required" type="text" /></td>
+						<td><input class="form-control" name="ano" th:field="*{modAno}" placeholder="yyyy" required="required" type="text" /></td>
 						<td><input class="form-control" name="fabricante" th:field="*{modFabricante}" required="required" type="text" /></td>
 						<td><input class="form-control" name="numeroDePassageiros" th:field="*{modNumPass}" required="required" type="text" /></td>
 						<td><input class="form-control" name="cilindradas" th:field="*{modCil}" required="required" type="text" /></td>
