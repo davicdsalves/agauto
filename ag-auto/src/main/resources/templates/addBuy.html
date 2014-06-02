@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: headerTag">
+
+</head>
+<body>
+	<div th:include="fragments/header :: header"></div>
+	<form class="form-signin" th:action="@{/registerBuy}" th:object="${compra}" method="post">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">Cadastrar Compra</h3>
+			</div>
+			<div class="panel-body">
+				<b>Proprietario</b>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Nascimento</th>
+						<th>Sexo</th>
+						<th>Telefone</th>
+						<th>Email</th>
+						<th>Cpf</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input class="form-control" name="nome" th:field="*{proprName}" required="required" type="text" /></td>
+						<td><input class="form-control" name="nascimento" th:field="*{proprNascimento}" placeholder="dd/mm/yyyy" required="required" type="text" /></td>
+						<td><select class="form-control" name="sexo" th:field="*{proprSexo}"><option value="MASCULINO">Masculino</option>
+								<option value="FEMININO">Feminino</option>
+						</select></td>
+						<td><input class="form-control" name="telefone" th:field="*{proprTel}" required="required" type="tel" /></td>
+						<td><input class="form-control" name="email" th:field="*{proprEmail}" required="required" type="email" /></td>
+						<td><input class="form-control" name="cpf" th:field="*{proprCpf}" required="required" type="text" /></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="panel-body">
+				<b>Funcionario</b>
+			</div>
+			<select class="form-control" name="funcionario">
+				<option th:each="f:${funcionarios}" th:value="${f.id}" th:text="${f.nome}">Funcionario1</option>
+			</select>
+
+			<div class="panel-body">
+				<b>Automovel</b>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Placa</th>
+						<th>Ano de Fabricacao</th>
+						<th>Cor</th>
+						<th>Combustivel</th>
+						<th>Preco Minimo de Venda</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input class="form-control" name="placa" th:field="*{autoPlaca}" required="required" type="text" /></td>
+						<td><input class="form-control" name="anoDeFabricacao" th:field="*{autoAno}" required="required" type="text" /></td>
+						<td><input class="form-control" name="cor" th:field="*{autoCor}" required="required" type="text" /></td>
+						<td><select class="form-control" th:field="*{autoCombustivel}"><option value="ALCOOL">Alcool</option>
+								<option value="GASOLINA">Gasolina</option>
+								<option value="DIESEL">Diesel</option>
+						</select></td>
+						<td><input class="form-control" name="precoMinimoDeVenda" th:field="*{autoPrecMinVenda}" required="required" type="text" /></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="panel-body">
+				<b>Modelo</b>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Ano</th>
+						<th>Fabricante</th>
+						<th>Numero de Passageiros</th>
+						<th>Cilindradas</th>
+						<th>Numero de Portas</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input class="form-control" name="nome" th:field="*{modNome}" required="required" type="text" /></td>
+						<td><input class="form-control" name="ano" th:field="*{modAno}" required="required" type="text" /></td>
+						<td><input class="form-control" name="fabricante" th:field="*{modFabricante}" required="required" type="text" /></td>
+						<td><input class="form-control" name="numeroDePassageiros" th:field="*{modNumPass}" required="required" type="text" /></td>
+						<td><input class="form-control" name="cilindradas" th:field="*{modCil}" required="required" type="text" /></td>
+						<td><select class="form-control" th:field="*{modNumPort}"><option value="2">2 Portas</option>
+								<option value="4">4 Portas</option>
+						</select></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<div class="panel-body">
+				<b>Pagamento</b>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Forma de Pagamento</th>
+						<th>Numero de Parcelas</th>
+						<th>Valor de Entrada</th>
+						<th>Valor De Prestacoes</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><select class="form-control" th:field="*{pagForma}"><option value="DINHEIRO">Dinheiro</option>
+								<option value="CARTAO">Cartao</option>
+								<option value="DEBITO">Debito</option></select></td>
+						<td><input class="form-control" name="numeroDeParcelas" th:field="*{pagNumParc}" required="required" type="text" /></td>
+						<td><input class="form-control" name="valorDeEntrada" th:field="*{pagValEntr}" required="required" type="text" /></td>
+						<td><input class="form-control" name="valorDePrestacoes" th:field="*{pagValPrest}" required="required" type="text" /></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="panel-body">
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

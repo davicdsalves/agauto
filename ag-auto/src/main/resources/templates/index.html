@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: headerTag">
+
+</head>
+<body>
+	<div th:include="fragments/header :: header"></div>
+
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">Compras</h3>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+			<thead>
+					<tr>
+						<th>Placa do Automovel</th>
+						<th>Nome do Proprietario</th>
+						<th>Nome do Funcionario</th>
+						<th>Valor de Compra</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="c:${compras}">
+						<td><span th:text="${c.placa}"></span></td>
+						<td><span th:text="${c.propNome}"></span></td>
+						<td><span th:text="${c.funcNome}"></span></td>
+						<td><span th:text="${c.valCompra}"></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
